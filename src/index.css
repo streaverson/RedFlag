@@ -1,0 +1,423 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src:
+    url("./assets/fonts/Vazir.eot") format("eot"),
+    url("./assets/fonts/Vazir.ttf") format("ttf"),
+    url("./assets/fonts/Vazir.woff") format("woff");
+}
+:root {
+  --muted: #666;
+  --red-flag: #e8384f;
+  --red-flag-2: #e3455abe;
+
+  --primary: #2b1b1e;
+  --main-bg: #f2e0d9;
+}
+body {
+  overflow-x: hidden;
+  font-family: "Vazir" !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 24px;
+  background: var(--red-flag-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red-flag);
+}
+
+.container {
+  align-items: center;
+  height: auto;
+  background-color: #fdf5f4;
+  width: 100%;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px 0;
+}
+
+@keyframes flag {
+  0%,
+  100% {
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: rotate(-35deg);
+  }
+}
+
+.flag {
+  font-size: 3rem;
+  width: 100px;
+  text-align: center;
+}
+.animateFlag {
+  animation: flag 2.5s ease-in-out infinite;
+}
+
+.title {
+  margin: 25px 0;
+  color: var(--primary);
+  font-weight: 1000;
+  font-size: 2.7rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #7d7b7b;
+  max-width: 50ch;
+}
+/* 
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0;
+  padding: 20px;
+  font-family: "Vazir", sans-serif;
+  border: 4px solid var(--primary);
+  outline: none;
+  box-shadow: 5px 8px 0 0 #2b1b1e;
+  background: #fff;
+  border-radius: 16px;
+} */
+
+/* .inputContainer textarea {
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  outline: none;
+  height: 130px;
+  line-height: 1.2rem;
+  font-size: 1.1rem;
+  resize: none;
+  color: var(--primary);
+}
+*/
+.inputControl {
+  position: relative;
+  direction: ltr;
+  margin: 10px 0 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+}
+textarea::placeholder {
+  color: #848484;
+}
+.clearBtn {
+  color: var(--muted);
+  border: none;
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  position: absolute;
+  top: -46px;
+  left: 88%;
+}
+.resultBtn {
+  background-color: #e8384f;
+  color: #fff;
+  padding: 15px 32px;
+  margin: 20px 0 0 0;
+  outline: none;
+}
+
+.characterCounter {
+  position: absolute;
+  top: -50px;
+  left: -20px;
+}
+
+/* header */
+.header {
+  width: 100%;
+  padding: 24px 0;
+  direction: rtl;
+}
+
+.header-container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  text-decoration: none;
+  color: #25232a;
+
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.logo-icon {
+  font-size: 28px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-link {
+  position: relative;
+
+  text-decoration: none;
+  color: #25232a;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  padding: 8px 0;
+}
+
+.nav-link.active {
+  color: #ef334f;
+}
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: #ef334f;
+  border-radius: 10px;
+}
+
+.heroTitle h1 {
+  margin: 50px 0 20px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: 1100;
+  text-shadow: 1px 2px 2px var(--primary);
+  font-size: 2.3rem;
+}
+
+.heroTitleFlag {
+  transform: rotate(-10deg);
+}
+
+.heroDescription {
+  margin: 20px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Main Container  */
+
+.mainContainer {
+  background-color: #fef9f9;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 1px 5px 7px 5px rgba(239, 51, 79, 0.129);
+  border-radius: 5px;
+}
+
+.commentIcon {
+  color: var(--red-flag);
+}
+
+.mainDescription {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 20px 15px;
+}
+
+.inputTextarea {
+  padding: 0 15px 20px 45px;
+}
+.inputTextarea textarea {
+  width: 100%;
+  height: 140px;
+  resize: none;
+  outline: none;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #66666636;
+  /* direction: rtl; */
+  font-family: "Vazir", sans-serif;
+  font-size: 1.1rem;
+  line-height: 20px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--red-flag);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.analyzeBtn {
+  font-family: "Vazir";
+  background-color: #fa495c;
+  color: #fff;
+  padding: 10px 50px;
+  font-size: 1.2rem;
+  margin: 0 0 40px 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 34px;
+}
+
+/* se ta khat haye decori */
+
+.decoration {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.decoration span {
+  display: inline;
+  width: 28px;
+  height: 3px;
+  background: #ef334f;
+}
+.decoration-left span:nth-child(1) {
+  transform: translateX(8px) rotate(35deg);
+}
+
+.decoration-left span:nth-child(2) {
+  transform: translateX(0);
+}
+
+.decoration-left span:nth-child(3) {
+  transform: translateX(8px) rotate(-35deg);
+}
+
+.decoration-right span:nth-child(1) {
+  transform: translateX(-8px) rotate(-35deg);
+}
+
+.decoration-right span:nth-child(2) {
+  transform: translateX(0);
+}
+
+.decoration-right span:nth-child(3) {
+  transform: translateX(-8px) rotate(35deg);
+}
+
+/* ---------result ------------- */
+
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer h2 {
+  color: var(--primary);
+}
+
+.resultMessage {
+  text-align: center;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.resultText h3 {
+  color: var(--red-flag);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+.resultText p {
+  color: var(--muted);
+  max-width: 35ch;
+  margin: 0 10px 0 0;
+  text-align: center;
+}
+
+/* progress bar */
+.circular-progress-container {
+  position: relative; /* برای قرار دادن متن در مرکز */
+  display: inline-block; /* یا block بسته به نیاز */
+  width: 150px; /* سایز دلخواه */
+  height: 150px; /* سایز دلخواه */
+}
+
+.circular-progress-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* شروع از بالا */
+}
+
+.progress-background {
+  stroke: #e1d3d3; /* رنگ پس‌زمینه */
+}
+
+.progress-bar {
+  stroke: var(--red-flag); /* رنگ پروگرس بار (مثلا سبز) */
+  stroke-linecap: round; /* انتهای خط گرد باشه */
+  transition: stroke-dashoffset 0.3s ease-in-out; /* انیمیشن نرم */
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6em; /* سایز دلخواه */
+  font-weight: bold;
+  color: #333;
+}
+.footer {
+  margin: 0 auto;
+  margin-top: 80px;
+  padding: 25px;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+}
+
+.footer a {
+  color: #ef334f;
+  font-weight: 600;
+  text-decoration: none;
+
+  margin: 0 5px;
+}
