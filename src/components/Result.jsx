@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,8 +8,48 @@ import {
 import CircleProgress from "./CircleProgress";
 import ResultText from "./ResultText";
 import Footer from "./Footer";
-function Result() {
-  const [progress, setProgress] = useState(65);
+
+function Result({ text }) {
+  const [progress, setProgress] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!text) {
+      setError("متنی برای تحلیل ارسال نشده است");
+      setLoading(false);
+      return;
+    }
+
+    async function analyze() {
+      setLoading(true);
+      setError("");
+
+      try {
+        const res = await fetch("/api/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          setError(data.error || "خطایی رخ داد");
+          return;
+        }
+
+        setProgress(data.percent);
+      } catch (err) {
+        console.error(err);
+        setError("ارتباط با سرور برقرار نشد");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    analyze();
+  }, [text]);
 
   return (
     <>
@@ -20,9 +60,20 @@ function Result() {
         </h2>
 
         <div className="resultMessage">
-          <CircleProgress percentage={progress} />
-          <ResultText percentage={progress} />
+          {loading && <p style={{ textAlign: "center" }}>در حال تحلیل...</p>}
+
+          {!loading && error && (
+            <p style={{ textAlign: "center", color: "red" }}>{error}</p>
+          )}
+
+          {!loading && !error && progress !== null && (
+            <>
+              <CircleProgress percentage={progress} />
+              <ResultText percentage={progress} />
+            </>
+          )}
         </div>
+
         <hr
           style={{
             color: "#999",

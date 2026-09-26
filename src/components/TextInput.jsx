@@ -39,7 +39,7 @@ const TextInput = function ({ handleAnalyze }) {
           ) : null}
         </div>
       </div>
-      <AnalyzeBtn handleAnalyze={handleAnalyze} />
+      <AnalyzeBtn handleAnalyze={() => handleAnalyze(text)} />
     </div>
   );
 };
