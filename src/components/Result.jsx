@@ -11,6 +11,7 @@ import Footer from "./Footer";
 
 function Result({ text }) {
   const [progress, setProgress] = useState(null);
+  const [advice, setAdvice] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -40,6 +41,7 @@ function Result({ text }) {
         }
 
         setProgress(data.percent);
+        setAdvice(data.advice || "");
       } catch (err) {
         console.error(err);
         setError("ارتباط با سرور برقرار نشد");
@@ -70,6 +72,45 @@ function Result({ text }) {
             <>
               <CircleProgress percentage={progress} />
               <ResultText percentage={progress} />
+
+              {advice && (
+                <div
+                  style={{
+                    margin: "20px 20px 0 20px",
+                    padding: "16px 18px",
+                    borderRadius: "14px",
+                    background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      marginBottom: "8px",
+                      color: "#c9536b",
+                      fontWeight: "600",
+                      fontSize: ".9rem",
+                    }}
+                  >
+                    <span>💡</span>
+                    <span>یه نصیحت کوچولو</span>
+                  </div>
+                  <p
+                    style={{
+                      color: "#666",
+                      lineHeight: "1.9",
+                      margin: 0,
+                      fontSize: ".95rem",
+                    }}
+                  >
+                    {advice}
+                  </p>
+                </div>
+              )}
             </>
           )}
         </div>
