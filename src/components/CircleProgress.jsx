@@ -1,8 +1,9 @@
 import toPersianNumber from "../helper/toPersianDigit";
 
-function circleProgress({ percentage, strokeWidth = 10, radius = 50 }) {
+function CircleProgress({ percentage, strokeWidth = 10, radius = 50 }) {
   const viewBoxSize = radius * 2;
-  const circumFerence = radius * 2 * Math.PI;
+  const drawnRadius = radius - strokeWidth / 2;
+  const circumFerence = drawnRadius * 2 * Math.PI;
   const strokeDashoffset = circumFerence - (percentage / 100) * circumFerence;
 
   return (
@@ -18,7 +19,7 @@ function circleProgress({ percentage, strokeWidth = 10, radius = 50 }) {
           className="progress-background"
           cx={radius}
           cy={radius}
-          r={radius - strokeWidth / 2} // کمی کوچکتر برای اینکه داخل دایره اصلی قرار بگیره
+          r={drawnRadius}
           fill="none"
           strokeWidth={strokeWidth}
         />
@@ -28,12 +29,12 @@ function circleProgress({ percentage, strokeWidth = 10, radius = 50 }) {
           className="progress-bar"
           cx={radius}
           cy={radius}
-          r={radius - strokeWidth / 2}
+          r={drawnRadius}
           fill="none"
           strokeWidth={strokeWidth}
-          strokeDasharray={circumFerence} // کل طول دایره
-          strokeDashoffset={strokeDashoffset} // چقدر از دایره رو پر کنه
-          transform={`rotate(0 ${radius} ${radius})`} // شروع از بالا (ساعت ۱۲)
+          strokeDasharray={circumFerence}
+          strokeDashoffset={strokeDashoffset}
+          transform={`rotate(0 ${radius} ${radius})`}
         />
       </svg>
 
@@ -45,4 +46,4 @@ function circleProgress({ percentage, strokeWidth = 10, radius = 50 }) {
   );
 }
 
-export default circleProgress;
+export default CircleProgress;
