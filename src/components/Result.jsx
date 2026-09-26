@@ -69,14 +69,34 @@ function Result({ text }) {
           )}
 
           {!loading && !error && progress !== null && (
-            <>
-              <CircleProgress percentage={progress} />
-              <ResultText percentage={progress} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row-reverse",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "16px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <CircleProgress percentage={progress} />
+                <ResultText percentage={progress} />
+              </div>
 
               {advice && (
                 <div
                   style={{
-                    margin: "20px 20px 0 20px",
+                    width: "100%",
+                    boxSizing: "border-box",
+                    margin: "0 20px",
                     padding: "16px 18px",
                     borderRadius: "14px",
                     background:
@@ -111,7 +131,7 @@ function Result({ text }) {
                   </p>
                 </div>
               )}
-            </>
+            </div>
           )}
         </div>
 
