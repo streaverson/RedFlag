@@ -400,7 +400,7 @@ textarea::-webkit-scrollbar-thumb {
 
 .progress-bar {
   stroke: var(--red-flag);
-  stroke-linecap: butt; /* به‌جای round */
+  stroke-linecap: round; /* به‌جای round */
   transition: stroke-dashoffset 0.3s ease-in-out;
 }
 
