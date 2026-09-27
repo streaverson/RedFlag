@@ -96,7 +96,7 @@ function Result({ text }) {
                   style={{
                     width: "100%",
                     boxSizing: "border-box",
-                    margin: "0 20px",
+                    margin: "0 10px",
                     padding: "16px 18px",
                     borderRadius: "14px",
                     background:
