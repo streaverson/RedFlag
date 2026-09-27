@@ -19,6 +19,7 @@
   --main-bg: #f2e0d9;
 }
 body {
+  margin: 0;
   overflow-x: hidden;
   font-family: "Vazir" !important;
 }
@@ -132,10 +133,11 @@ textarea::placeholder {
   background: transparent;
   font-weight: 500;
   font-size: 0.9rem;
+  width: 50px;
   text-decoration: underline;
   position: absolute;
   top: -46px;
-  left: 88%;
+  left: 84%;
 }
 .resultBtn {
   background-color: #e8384f;
@@ -220,17 +222,20 @@ textarea::placeholder {
 }
 
 .heroTitle h1 {
-  margin: 50px 0 20px 0;
+  margin: 50px auto 20px;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
   font-weight: 1100;
-  text-shadow: 1px 2px 2px var(--primary);
-  font-size: 2.3rem;
+  text-shadow: 1px 1px 2px var(--primary);
+  font-size: 2rem;
 }
 
 .heroTitleFlag {
+  margin: 0;
+  padding: 0;
+
   transform: rotate(-10deg);
 }
 
@@ -245,12 +250,13 @@ textarea::placeholder {
 .mainContainer {
   background-color: #fef9f9;
   text-align: center;
+  box-sizing: border-box;
+  width: 90%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto !important;
   padding: 0 20px;
   box-shadow: 1px 5px 7px 5px rgba(239, 51, 79, 0.129);
   border-radius: 5px;
-  /* border: 2px solid red; baraye test bood */
 }
 
 .commentIcon {
@@ -315,7 +321,7 @@ textarea::-webkit-scrollbar-thumb {
 
 .decoration span {
   display: inline;
-  width: 28px;
+  width: 12px;
   height: 3px;
   background: #ef334f;
 }

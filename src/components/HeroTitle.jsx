@@ -4,17 +4,17 @@ function HeroTitle({ title }) {
       <h1>
         <div
           className="decoration decoration-left"
-          style={{ margin: "10px 8px" }}
+          style={{ margin: "10px 20px" }}
         >
           <span></span>
           <span></span>
           <span></span>
         </div>
-        {title}
         <div className="heroTitleFlag">🚩</div>
+        {title}
         <div
           className="decoration decoration-right"
-          style={{ margin: "10px 8px" }}
+          style={{ margin: "10px 30px" }}
         >
           <span></span>
           <span></span>
