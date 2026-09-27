@@ -250,7 +250,7 @@ textarea::placeholder {
   padding: 0 20px;
   box-shadow: 1px 5px 7px 5px rgba(239, 51, 79, 0.129);
   border-radius: 5px;
-  border: 2px solid red;
+  /* border: 2px solid red; baraye test bood */
 }
 
 .commentIcon {
